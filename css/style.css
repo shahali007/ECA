@@ -388,5 +388,8 @@ label span i {
 label.filebutton:hover{
     opacity: 1;
 }
+.todo{
+    cursor: pointer;
+}
 /*============== End body content css =================*/
 

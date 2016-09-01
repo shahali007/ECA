@@ -1,0 +1,158 @@
+.list {
+    max-height: 300px;
+    overflow: auto;
+}
+.input {
+text-align: center;
+padding: 0 0 25px 0;
+border-top: 1px solid #95a5a6;
+border-bottom: 1px solid #95a5a6;
+background-color: #666666;
+}
+.custinput {
+border: 1px solid #ecf0f1;
+border-radius: 5px;
+color: #000;
+}
+.todo-title {
+    font-weight:bold;
+    color: #000!important;
+}
+.input-group.todogroup {
+    background: #8e44ad;
+    border-collapse: separate;
+    display: table;
+    padding: 25px;
+    position: relative;
+}
+.todogroup .btn{
+    padding: 10px 12px;
+}
+.input-group .form-control{
+    height:40px;
+    padding:10px 12px;
+}
+input.custinput:focus {
+outline-style: none;
+border-color: lightseagreen;
+}
+
+button.btn:active {
+background-color: #19713e;
+border-color: #1e9751;
+outline: none;
+}
+button.btn:focus {
+outline: none;
+}
+.edit {
+text-decoration: underline;
+text-align: right;
+font-size: 14px;
+width: 100%;
+}
+.edit span {
+cursor: pointer;
+}
+
+.items {
+clear: both;
+margin: 0 auto;
+    width:100%;
+}
+td {
+    padding: 10px 10px;
+    font-size: 16px;
+    float: left;
+}
+td:last-child{
+    float: right;
+}
+.input-group-btn:last-child > .btn, .input-group-btn:last-child > .btn-group {
+    border: medium none;
+    margin-left: -1px;
+}
+thead tr {
+border: none;
+}
+tr {
+    border-bottom: 1px solid #ecf0f1;
+}
+.cross {
+    cursor: pointer;
+    float: right;
+}
+.content {
+max-width: 500px;
+}
+.checked {
+position: relative;
+}
+/*
+.checked::after {
+content: '';
+border-bottom: 4px solid #666666;
+position: absolute;
+left: 0;
+top: 55%;
+width: 100%;
+}
+*/
+
+.checked::after {
+    background: green;
+    border-radius: 2px;
+    box-shadow: 0 2px 4px 1px lightgray;
+    color: white;
+    content: "Completed ";
+    font-size: 12px;
+    font-weight: bold;
+    left: -10px;
+    padding: 3px 7px;
+    position: absolute;
+    top: -2px;
+}
+.checked::before {
+    background: green none repeat scroll 0 0;
+    content: "";
+    height: 10px;
+    left: -15px;
+    position: absolute;
+    top: 5px;
+    transform: rotate(45deg);
+    width: 10px;
+    z-index: 5;
+}
+/*  CUSTOM CHECKBOX  */
+
+input[type=CHECKBOX].box {
+
+}
+input[type=checkbox].box + label.check-label {
+padding-left: 20px;
+height: 15px;
+display: inline-block;
+line-height: 15px;
+background-repeat: no-repeat;
+background-position: 0 0;
+font-size: 15px;
+vertical-align: middle;
+cursor: pointer;
+}
+input[type=checkbox].box:checked + label.check-label {
+background-position: 0 -15px;
+}
+label.check-label {
+background-image: url(http://www.csscheckbox.com/checkboxes/u/csscheckbox_d2b25024735394b3e45db98ce4cf9265.png);
+-webkit-touch-callout: none;
+-webkit-user-select: none;
+-khtml-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+}
+/*
+* {
+	border: 1px solid red;
+} 
+*/

@@ -7,18 +7,17 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/stylesheet.css">
     <link rel="stylesheet" href="css/preloader.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
 <!--===== start loader section =====-->
-<!--<div id="loader-wrapper">-->
-<!--    <div id="loader"></div>-->
-<!--    <div class="loader-section section-left"></div>-->
-<!--    <div class="loader-section section-right"></div>-->
-<!--</div>-->
+<div id="loader-wrapper">
+    <div id="loader"></div>
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right"></div>
+</div>
 <!--===== end loader section =====-->
 
 <!--===== start header =====-->
@@ -27,17 +26,13 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-2">
-                    <h2 class="side-eca"><button type="button" class="btn btn-link btn-sm" id="button-swip"><i class="fa fa-arrow-left"></i></button> ECA</h2>
+                    <h2 class="side-eca"><button type="button" class="btn btn-link" id="button-swip"><i class="fa fa-arrow-left"></i></button> ECA</h2>
                 </div>
                 <div class="col-md-10">
                     <div class="row">
                         <div class="col-md-12 hidden-xs">
                             <!-- Collect the nav links, forms, and other content for toggling -->
-                            
                             <div class="" id="info-nav">
-                            <span class="todo" data-toggle="modal" data-target="#todolist">
-                                <img src="images/todo.png" alt="Todo">
-                            </span>
                                 <ul class="nav navbar-nav navbar-right">
                                     <!-- dropdown for notification -->
                                     <li class="dropdown">
@@ -289,59 +284,15 @@
             </div>
         </div>
     </div>
+
+
 </div>
 <!--===== End body content =====-->
-
-
-
-
-
-<!-- Modal -->
-<div class="modal fade" id="todolist" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h1 class="modal-title todo-title text-center" id="myModalLabel">Todos</h1>
-      </div>
-      <div class="modal-body">
-<!-- start to do list markup -->
-
-          <div class="input-group todogroup">
-              <input type="text" class="custinput form-control">
-              <span class="input-group-btn">
-                  <button type="submit" class="btn btn-primary" id="item-input" placeholder="Enter list item..." autofocus>
-                  <i class="fa fa-plus"></i> Add</button>
-              </span>
-
-          </div>
-          <div class="list">
-              <table class="items">
-                  <thead>
-                  <tr>
-<!--                      <th class="edit" id="deleteall" colspan="3"><span>Delete</span></th>-->
-                  </tr>
-                  </thead>
-                  <tbody>
-
-                  </tbody>
-              </table>
-          </div>
-<!-- end to do list markup -->
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
 
 
     <!--===== javascripts =====-->
     <script src="js/jquery-2.1.4.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/main.js"></script>
     <script src="js/custom.js"></script>
 </body>
 </html>
