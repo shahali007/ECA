@@ -1,0 +1,12 @@
+Question about the project - ECA (About Back End)
+===================================================
+	* How is my code structure?
+	* How to do standard code?
+	* How can i improve my recent 'dbconfig.php' and 'pdo-connection.php' code structure?
+	* How can i check authentication?
+		- with login.
+		- without login.
+		- Session.
+		
+	* How 'ID' can be 'auto_increment' in 'user_status' TABLE as a FOREIGN KEY
+		- Please check database 'eca' and TABLE 'user_status'.

@@ -1,3 +1,25 @@
+<?php
+    session_start();
+    include('dbconfig.php');
+    include('pdo-connection.php');
+    $dbServer = $db_server;
+    $dbUser = $db_user;
+    $dbPass = $db_pass;
+    $dbName = $db_name;
+    $dbcon = $connection_object->connection($db_server,$db_user,$db_pass,$db_name);
+
+    // checking login
+    if($_SESSION['login'] != "True"){
+        echo "<script>location.href='login.php'</script>";
+    }
+    else{
+        $filtering = "SELECT * FROM user_info";
+        $hold = $dbcon->query($filtering);
+        $final = $hold->fetchAll(PDO::FETCH_ASSOC);
+
+        $Logger = $final['name'];
+    }
+?>
 <!Doctype html>
 <html lang="en">
 <head>
@@ -103,13 +125,13 @@
 
                                     <!-- dropdown for user -->
                                     <li class="dropdown">
-                                        <a href="#" class="dropdown-toggle" title='Profile' data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i></a>
+                                        <a href="#" class="dropdown-toggle" title='Profile' data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"><?php echo $Logger; ?></i></a>
                                         <ul class="dropdown-menu">
                                             <li><a href="#">Profile</a></li>
                                             <li><a href="#">Setting</a></li>
                                             <li><a href="#">Help</a></li>
                                             <li role="separator" class="divider"></li>
-                                            <li><a href="#">Logout</a></li>
+                                            <li><a href="logout.php">Logout</a></li>
                                         </ul>
                                     </li>
                                 </ul>
@@ -145,11 +167,10 @@
                     <div id="dashboard" class="eca-collapse collapse" role="tabpanel" aria-labelledby="dashboardhead">
                         <div class="">
                             <ul>
-                                <li><a href="">Shahjahan</a></li>
-                                <li><a href="">Shahali bogdadi</a></li>
-                                <li><a href="">Saikat</a></li>
-                                <li><a href="">Rashed</a></li>
-                                <li><a href="">Emran Huda</a></li>
+                                <!-- query for all user name in list-->
+                                <?php foreach($final as $row){?>
+                                    <li><a href=""><?php echo $row['name']?></a></li>
+                                <?php }?>
                             </ul>
                         </div>
                     </div>

@@ -1,46 +1,49 @@
 <?php
+	session_start();
+	include('pdo-connection.php');
+	include('dbconfig.php');
+	$dbServer = $db_server;
+	$dbUser = $db_user;
+	$dbPass = $db_pass;
+	$dbName = $db_name;
+	$dbcon = $connection_object->connection($db_server,$db_user,$db_pass,$db_name);
 
-include('pdo-connection.php');
-include('dbconfig.php');
-$dbServer = $db_server;
-$dbUser = $db_user;
-$dbPass = $db_pass;
-$dbName = $db_name;
-$dbcon = $connection_object->connection($db_server,$db_user,$db_pass,$db_name);
+	if($_SESSION['login'] !="True"){
+		echo "<script>location.href='login.php'</script>";
+	}
+	else{
+		if(isset($_POST['registration']))
+		{
+			$userID = $_POST['userid'];
+			$user = $_POST['username'];
+			$password = md5($_POST['userpassword']);
+			$dob = $_POST['dob'];
+			$contact = $_POST['contact'];
+			$email = $_POST['useremail'];
+			$address = $_POST['address'];
+			$alt_name = $_POST['alt-name'];
+			$alt_contact = $_POST['alt-contact'];
+			$cv = $_POST['resume'];
+			$certificate = $_POST['certificate'];
+			$experience = $_POST['experience'];
+			$gender = $_POST['gender'];
+			$salary = $_POST['salary'];
+			$blood_group = $_POST['blood-group'];
+			$department = $_POST['department'];
+			$designation = $_POST['designation'];
 
-if(isset($_POST['registration']))
-{
-	$userID = $_POST['userid'];
-	$user = $_POST['username'];
-	$password = md5($_POST['userpassword']);
-	$dob = $_POST['dob'];
-	$contact = $_POST['contact'];
-	$email = $_POST['useremail'];
-	$address = $_POST['address'];
-	$alt_name = $_POST['alt-name'];
-	$alt_contact = $_POST['alt-contact'];
-	$cv = $_POST['resume'];
-	$certificate = $_POST['certificate'];
-	$experience = $_POST['experience'];
-	$gender = $_POST['gender'];
-	$salary = $_POST['salary'];
-	$blood_group = $_POST['blood-group'];
-	$department = $_POST['department'];
-	$designation = $_POST['designation'];
+			//$sql = "INSERT INTO userinfo(name,email,password) VALUES ('$user','$email','$password')";
+			//$datainserted = $dbcon->query($sql);
 
-	//$sql = "INSERT INTO userinfo(name,email,password) VALUES ('$user','$email','$password')";
-	//$datainserted = $dbcon->query($sql);
+			$dataInsert1 = "INSERT INTO user_info(id,name,password,dob,contact,email,address,alt_name,alt_contact,cv,certificate,experience,gender,blood)
+							VALUES ('$userID','$user','$password','$dob','$contact','$email','$address','$alt_name','$alt_contact','$cv','$certificate','$experience','$gender','$blood_group')";
 
-	$dataInsert1 = "INSERT INTO user_info(id,name,password,dob,contact,email,address,alt_name,alt_contact,cv,certificate,experience,gender,blood)
-					VALUES ('$userID','$user','$password','$dob','$contact','$email','$address','$alt_name','$alt_contact','$cv','$certificate','$experience','$gender','$blood_group')";
+			$dataInsert2 = "INSERT INTO user_status(id,salary,department,designation) VALUES ('$userID','$salary','$department','$designation')";
 
-	$dataInsert2 = "INSERT INTO user_status(id,salary,department,designation) VALUES ('$userID','$salary','$department','$designation')";
-
-	$dataQuery1 = $dbcon->query($dataInsert1);
-	$dataQuery2 = $dbcon->query($dataInsert2);
-
-
-}
+			$dataQuery1 = $dbcon->query($dataInsert1);
+			$dataQuery2 = $dbcon->query($dataInsert2);
+		}
+	}
 ?>
 
 

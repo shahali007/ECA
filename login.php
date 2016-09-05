@@ -1,4 +1,5 @@
 <?php
+session_start();
 include('pdo-connection.php');
 include('dbconfig.php');
 $dbServer =$db_server;
@@ -9,6 +10,7 @@ $dbcon=$connection_object->connection('localhost',$db_user,$db_pass,$db_name);
 
 if(isset($_POST['login']))
 {
+
 	$loginEmail = $_POST['email'];
 	$loginPass = md5($_POST['password']);
 
@@ -21,10 +23,16 @@ if(isset($_POST['login']))
 
 	$loginQuery = "SELECT * FROM user_info WHERE email='$loginEmail' AND password='$loginPass'";
 	$loginInfo = $dbcon->query($loginQuery);
-	$Rows = $loginInfo->fetch(PDO::FETCH_ASSOC);
+	$Rows = $loginInfo->fetchAll(PDO::FETCH_ASSOC);
+
 
 	$LogEmail = $Rows['email'];
 	$LogPass = $Rows['password'];
+
+	if(($LogEmail !="") && $LogPass !=""){
+		$_SESSION['user'] = $LogEmail;
+		$_SESSION['login'] = "True";
+	}
 
 	if(($LogEmail == $loginEmail) && ($LogPass == $loginPass)){
 		echo "<script>location.href='index.php'</script>";
