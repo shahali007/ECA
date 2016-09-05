@@ -35,13 +35,16 @@
                             <!-- Collect the nav links, forms, and other content for toggling -->
                             
                             <div class="" id="info-nav">
-                            <span class="todo" data-toggle="modal" data-target="#todolist">
-                                <img src="images/todo.png" alt="Todo">
-                            </span>
+                            
                                 <ul class="nav navbar-nav navbar-right">
-                                    <!-- dropdown for notification -->
+                                    <li>
+										<span class="todo" title='To Do List' data-toggle="modal" data-target="#todolist">
+											<img src="images/todo.png" alt="Todo">
+										</span>
+									</li>
+									<!-- dropdown for notification -->
                                     <li class="dropdown">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-bell"></i></a>
+                                        <a href="#" class="dropdown-toggle" title='Notification' data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-bell"></i></a>
                                         <ul class="dropdown-menu notif">
                                             <li class="text-center"><b>Notification</b></li>
                                             <li role="separator" class="divider"></li>
@@ -70,7 +73,7 @@
                                     </li>
                                     <!-- dropdown for email -->
                                     <li class="dropdown">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-envelope"></i></a>
+                                        <a href="#" class="dropdown-toggle" title='Email' data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-envelope"></i></a>
                                         <ul class="dropdown-menu notif">
                                             <li class="text-center"><b>Email</b></li>
                                             <li role="separator" class="divider"></li>
@@ -100,7 +103,7 @@
 
                                     <!-- dropdown for user -->
                                     <li class="dropdown">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i></a>
+                                        <a href="#" class="dropdown-toggle" title='Profile' data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i></a>
                                         <ul class="dropdown-menu">
                                             <li><a href="#">Profile</a></li>
                                             <li><a href="#">Setting</a></li>
@@ -281,7 +284,7 @@
                                 <label class="filebutton" title="Attachment">
                                     <span><input type="file" id="myfile" name="myfile"> <i class="fa fa-paperclip"></i></span>
                                 </label>
-                                <button type="submit" title="Send"><i class="fa fa-paper-plane"></i></button>
+                                <button type="button" id="send" title="Send"><i class="fa fa-paper-plane"></i></button>
                             </form>
                         </div>
                     </div>

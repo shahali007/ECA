@@ -1,3 +1,49 @@
+<?php
+include('pdo-connection.php');
+include('dbconfig.php');
+$dbServer =$db_server;
+$dbUser =$db_user;
+$dbPass =$db_pass;
+$dbName=$db_name;
+$dbcon=$connection_object->connection('localhost',$db_user,$db_pass,$db_name);
+
+if(isset($_POST['login']))
+{
+	$loginEmail = $_POST['email'];
+	$loginPass = md5($_POST['password']);
+
+	//$loginSql = "SELECT * FROM userinfo WHERE name='$loginName' AND password='$loginPass'";
+	//$loginData = $dbcon->query($loginSql);
+	//$Row = $loginData->fetch(PDO::FETCH_ASSOC);
+
+	//$name = $Row['name'];
+	//$pass = $Row['password'];
+
+	$loginQuery = "SELECT * FROM user_info WHERE email='$loginEmail' AND password='$loginPass'";
+	$loginInfo = $dbcon->query($loginQuery);
+	$Rows = $loginInfo->fetch(PDO::FETCH_ASSOC);
+
+	$LogEmail = $Rows['email'];
+	$LogPass = $Rows['password'];
+
+	if(($LogEmail == $loginEmail) && ($LogPass == $loginPass)){
+		echo "<script>location.href='index.php'</script>";
+	}
+	else{
+		$logError = "Invalid Username or password";
+	}
+
+
+	//if(($name == $loginName) && ($pass == $loginPass)){
+	//	echo("<script>location.href='index.php'</script>");
+	//}
+	//else{
+	//	$error =  "Username or password incorrect";
+	//}
+}
+
+?>
+
 <!Doctype html>
 <html lang="en">
 <head>
@@ -24,17 +70,27 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-4 col-md-offset-4 text-center">
+			<?php
+			if(isset($_POST['login'])){
+				if(($LogEmail != $loginEmail) && ($LogPass != $loginPass)){
+					echo '<div class="alert alert-danger alert-dismissible" role="alert">
+						  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						 '.$logError.'
+						</div>';
+				}
+			}
+			?>
 			<div class="eca-login">
 				<h2 class="eca-logo">ECA</h2>
 				<h4>Sign in</h4>
 				<form action="" method="post">
 					<div class="form-group">
-					    <label for="login-username">Name, Email or Phone Number</label>
-					    <input type="text" class="form-control" id="login-username" required>
+					    <label for="username">Email</label>
+					    <input name="email" type="email" class="form-control" id="username" required>
 				  	</div>
 				  	<div class="form-group">
-					    <label for="login-password">Password</label>
-					    <input type="text" class="form-control" id="login-password" required>
+					    <label for="password">Password</label>
+					    <input name="password" type="password" class="form-control" id="password" required>
 				  	</div>
 				  	<div class="checkbox">
 					    <label>
@@ -42,9 +98,9 @@
 				    	</label>
 						<a href="#" class="link">&nbsp;&nbsp; Forgot password?</a>
 				  	</div>
-				  	<button type="submit" class="btn btn-primary">Sign in</button>
+				  	<button name="login" type="submit" class="btn btn-primary">Sign in</button>
 				</form>
-				<a href="#" class="link">Create new account.</a>
+				<a href="adduser.php" class="link">Create new account.</a>
 			</div>
 		</div>
 	</div>

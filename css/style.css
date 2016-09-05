@@ -9,7 +9,7 @@ html,body{
 body{
 	font-family: 'Raleway', sans-serif;
     background: #F1F1F1;
-    margin-top: 70px;
+    margin-top:70px;
 }
 a,button,input:focus{
     -webkit-transition: all 0.3s;
@@ -37,10 +37,24 @@ p{
     font-family: 'Raleway', sans-serif;
 }
 
-
+.registration{
+    background-image: url("../images/registration.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    margin-top:-70px;
+}
+.overlay {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 70px 0;
+    top: -70px;
+    width: 100%;
+}
 /*============== Start login css =================*/
-.eca-login{
-    margin-top:100px;
+.eca-login {
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: 0 2px 3px 2px lightgrey;
+    padding:10px 35px 25px 35px;
 }
 h2.eca-logo {
     color: #8e44ad;
@@ -53,13 +67,13 @@ h2.eca-logo {
     font-weight: 300;
     margin-bottom: 50px;
 }
+
 label{
-    font-weight: normal;
+    font-weight: 500;
 }
 .eca-login .form-control {
-    border-radius: 0;
     box-shadow: none;
-    border-width: 2px;
+    border-radius: 0;
 }
 .eca-login .form-control:focus {
     border-color:#8e44ad;
@@ -108,7 +122,6 @@ h2.side-eca {
 }
 #button-swip {
     background: #8e44ad;
-    border-radius: 3px;
     margin: 0;
     transition: all 0.3s ease-in-out;
     -webkit-transition: all 0.3s ease-in-out;
@@ -117,7 +130,6 @@ h2.side-eca {
     border-radius: 100%;
     color: #fff;
     text-align: center;
-    margin: 0;
     padding: 0;
 
 }
@@ -186,12 +198,11 @@ button.arrow i{
     border-right: 1px solid #f1f1f1;
     height: 100%;
     overflow: hidden;
-    padding: 0;
     position: fixed;
     transition: all 0.5s ease 0s;
     width: 220px;
     z-index: 1;
-    padding-top:15px;
+    padding:15px 0 0 0;
 }
 .left-menu.swipp{
     margin-left: -220px;
@@ -389,7 +400,9 @@ label.filebutton:hover{
     opacity: 1;
 }
 .todo{
-    cursor: pointer;
+	cursor: pointer;
+	display: inline-block;
+	margin-top: 3px;
 }
 /*============== End body content css =================*/
 
